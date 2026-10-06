@@ -1,0 +1,37 @@
+node_modules/
+**/dist/
+**/*.tsbuildinfo
+**/test-results/
+**/playwright-report/
+.runtime-logs/
+.data/
+.env
+**/.env
+**/.env.local
+
+# Local design references and scraped research artifacts are kept outside the source repository.
+design-drafts/
+images/
+assets/
+xiangcao_assets/
+dzmm_sample_3674281/
+character-cards/
+card.png
+original_card.png
+tmp.bin
+char.html
+char_auth.html
+register.html
+dzmm_home.html
+fp_hash.js
+xiangcao_*.js
+xiangcao_*.html
+xiangcao_*.json
+xiangcao_*.txt
+
+# Generated design montage script output.
+scripts/compose_fixed_sidebar.py
+
+# SillyTavern is consumed from the pinned Docker image in docker-compose.yml;
+# the checked-out upstream repository is intentionally kept as a local workspace only.
+apps/sillytavern/

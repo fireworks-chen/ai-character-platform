@@ -1,0 +1,38 @@
+services:
+  sillytavern:
+    image: ghcr.io/sillytavern/sillytavern:latest
+    environment:
+      NODE_ENV: production
+      SILLYTAVERN_LISTEN: "true"
+      SILLYTAVERN_WHITELISTMODE: "false"
+      SILLYTAVERN_BASICAUTHMODE: "true"
+      SILLYTAVERN_BASICAUTHUSER_USERNAME: "core"
+      SILLYTAVERN_BASICAUTHUSER_PASSWORD: ${SILLYTAVERN_PASSWORD:?Configure SILLYTAVERN_PASSWORD in .env}
+      SILLYTAVERN_ENABLEUSERACCOUNTS: "false"
+    ports:
+      - "127.0.0.1:8000:8000"
+    volumes:
+      - ai-character-core:/home/node/app/data
+    healthcheck:
+      test: ["CMD", "node", "src/healthcheck.js"]
+      interval: 10s
+      timeout: 5s
+      retries: 10
+  postgres:
+    image: postgres:16-alpine
+    environment:
+      POSTGRES_DB: ai_character
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:?Configure POSTGRES_PASSWORD in .env}
+    ports:
+      - "127.0.0.1:5432:5432"
+    volumes:
+      - ai-character-postgres:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U postgres -d ai_character"]
+      interval: 5s
+      timeout: 3s
+      retries: 15
+volumes:
+  ai-character-core:
+  ai-character-postgres:

@@ -1,0 +1,10 @@
+packages:
+  - "packages/*"
+  - "apps/web"
+  - "apps/api"
+  - "apps/admin"
+  - "apps/admin-api"
+allowBuilds:
+  '@parcel/watcher': true
+  esbuild: true
+  unrs-resolver: true

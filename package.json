@@ -1,0 +1,17 @@
+{
+  "name": "ai-character-platform",
+  "private": true,
+  "scripts": {
+    "dev:web": "pnpm --filter @ai-character/web dev",
+    "dev:api": "pnpm --filter @ai-character/api start:dev",
+    "dev:admin": "pnpm --filter @ai-character/admin dev",
+    "dev:admin-api": "pnpm --filter @ai-character/admin-api start:dev",
+    "build": "pnpm -r build",
+    "test": "pnpm --filter @ai-character/data build && pnpm --filter @ai-character/admin-api build && pnpm -r test",
+    "test:visual": "pnpm --filter @ai-character/web test:visual",
+    "test:admin-visual": "pnpm --filter @ai-character/admin test:visual",
+    "db:start": "docker compose up -d --wait postgres sillytavern",
+    "db:stop": "docker compose stop postgres sillytavern",
+    "test:all": "pnpm build && pnpm test && pnpm test:admin-visual && pnpm test:visual"
+  }
+}

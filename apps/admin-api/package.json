@@ -1,0 +1,30 @@
+{
+  "name": "@ai-character/admin-api",
+  "private": true,
+  "version": "0.1.0",
+  "scripts": {
+    "start:dev": "tsx watch src/main.ts",
+    "build": "nest build",
+    "test": "tsx --tsconfig tsconfig.json test/admin-smoke.ts"
+  },
+  "dependencies": {
+    "@ai-character/data": "workspace:*",
+    "@nestjs/common": "latest",
+    "@nestjs/core": "latest",
+    "@nestjs/platform-express": "latest",
+    "class-transformer": "latest",
+    "class-validator": "latest",
+    "dotenv": "^18.0.5",
+    "pg": "^8.23.1",
+    "reflect-metadata": "latest",
+    "rxjs": "latest"
+  },
+  "devDependencies": {
+    "@nestjs/cli": "latest",
+    "@nestjs/schematics": "latest",
+    "@types/node": "latest",
+    "@types/pg": "^8.23.1",
+    "tsx": "latest",
+    "typescript": "5.9.3"
+  }
+}
