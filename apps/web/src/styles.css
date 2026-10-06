@@ -669,3 +669,64 @@ button { cursor: pointer; }
 
 
 
+
+/* Final visual pass: keep the reference density on desktop and one navigation model on mobile. */
+@media (min-width: 861px) {
+  .content-area { padding: 0 28px 30px 0; }
+  .content-area > div { max-width: 1210px; }
+  .topbar { height: 60px !important; padding: 10px 22px !important; gap: 18px; }
+  .searchbar { width: min(540px, 48vw); height: 38px; }
+  .top-actions { gap: 15px; }
+  .page-head h1, .discover-head h1, .editor-head h1, .profile-banner h1 { font-size: 30px; }
+  .roles-page { padding: 20px 18px 24px; border-radius: 15px; }
+  .role-controls { gap: 18px; margin-bottom: 16px; }
+  .role-tabs button { min-width: 76px; height: 38px; padding: 0 14px; font-size: 13px; }
+  .role-grid { gap: 12px; }
+  .role-cover { height: 198px; }
+  .role-info { padding: 11px 12px 13px; }
+  .role-name h3 { font-size: 15px; }
+  .role-info p { margin: 7px 0 9px; font-size: 12px; }
+  .start-button { width: 98px; height: 34px; font-size: 12px; }
+  .conversations-page { grid-template-columns: 330px minmax(0, 1fr); min-height: calc(100vh - 90px); }
+  .conversation-list { padding-inline: 8px; }
+  .chat-stream { max-width: 790px; padding-top: 22px; }
+  .chat-rich { font-size: 15px; }
+  .chat-header-card { min-height: 72px; padding: 12px 18px; }
+  .chat-composer { margin: 0 15px 15px; }
+  .profile-banner { padding: 24px 28px; }
+  .profile-stats > div { padding: 14px 17px; }
+}
+@media (max-width: 860px) {
+  .desktop-sidebar, .drawer-scrim, .mobile-menu { display: none !important; }
+  .topbar { height: 64px !important; display: flex; padding: 9px 14px !important; gap: 10px; }
+  .mobile-brand { display: flex; margin-right: auto; font-size: 18px; }
+  .mobile-brand .brand-mark { width: 31px; height: 31px; font-size: 19px; border-radius: 10px; }
+  .searchbar { display: none; }
+  .top-actions { gap: 10px; margin-left: 0; }
+  .top-actions .notice svg { width: 19px; height: 19px; }
+  .balance, .membership { display: none !important; }
+  .content-area { min-height: calc(100vh - 64px); padding: 13px 12px 88px; }
+  .app-shell.is-immersive .content-area { min-height: 100dvh; padding: 7px 12px 9px; }
+  .chat-rich { font-size: 16px; line-height: 1.65; }
+  .assistant-rich, .user-rich { padding: 13px 15px; }
+  .profile-quick { grid-template-columns: repeat(3, 1fr); }
+}
+.profile-quick { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 10px; margin: 14px 0; }
+.profile-quick a { display: flex; align-items: center; gap: 10px; padding: 14px 15px; border: 1px solid rgba(222, 231, 249, .9); border-radius: 13px; background: rgba(255,255,255,.86); }
+.profile-quick a > svg { width: 19px; color: var(--purple); }
+.profile-quick a span { display: grid; gap: 3px; }
+.profile-quick a b { font-size: 12px; }
+.profile-quick a small { color: var(--muted); font-size: 10px; }
+.profile-logout { display: flex; justify-content: center; margin-top: 16px; padding-top: 15px; border-top: 1px solid rgba(223,232,250,.9); }
+.logout-button { display: inline-flex; align-items: center; gap: 8px; padding: 9px 18px; border: 1px solid #f2cadb; border-radius: 20px; background: #fff6fa; color: #bb5f87; font-size: 12px; font-weight: 700; transition: background .18s ease, color .18s ease; }
+.logout-button:hover { background: #ffeaf3; color: #a84270; }
+.chat-tools button.active { color: var(--purple); }
+@media (max-width: 560px) {
+  .profile-quick { gap: 7px; }
+  .profile-quick a { justify-content: center; padding: 12px 8px; }
+  .profile-quick a span { text-align: center; }
+  .profile-quick a > svg { display: none; }
+}
+.conversation-row > .ant-avatar { flex: 0 0 auto; }
+.conversation-row > span:not(.ant-avatar) { display: grid; flex: 1; min-width: 0; gap: 5px; }
+.save-role.active { background: #ffe9f3; color: #e04f83; }
